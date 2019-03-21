@@ -1,0 +1,24 @@
+実行ディレクトリ
+~/git/landrop/app01
+
+dockerコンテナの初期化
+docker-compose up -d nginx mysql workspace phpmyadmin
+
+docker開始
+docker-compose exec workspace bash
+
+動作確認
+docker ps
+
+docker仮想環境へのログイン
+docker-compose exec --user=laradock workspace bash
+
+>> laravelのインストール、mysqlへの実行などはこの環境から〜
+
+ログアウト
+exit
+
+dockerの終了
+docker-compose stop
+
+
