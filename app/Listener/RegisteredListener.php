@@ -2,9 +2,12 @@
 
 namespace App\Listener;
 
+use App\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Mail\Mailer;
+
 
 class RegisteredListener
 {
