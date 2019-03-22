@@ -14,9 +14,30 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <title>@yield('title')</title>
+    <style>
+        .booktitle{
+            display:inline-block;
+        }
+        .register {
+            margin:0 5% 0 5%;
+            width:90%;
+        }
+        .booklist {
+            margin:0 5% 0 5%;
+            width:90%;
+        }
+    </style>
 </head>
 <body>
-    @yield('register')
-    @yield('booklist')
+    <div class="booktitle">
+        @yield('booktitle')
+    </div>
+    <div class="register">
+        @yield('register')
+    </div>
+    <div  class="booklist">
+        @yield('booklist')
+    </div>
 </body>
 </html>
+

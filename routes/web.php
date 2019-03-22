@@ -22,6 +22,9 @@ Route::get('/home', function () {
 
 Route::get('/books', 'BooksController@index');
 Route::post('/books', 'BooksController@post');
+Route::post('/books/del/{book}', 'BooksController@delete');
+//Route::post('/books/del/{id}', 'BooksController@delete');
+
 //Route::post('/book/{book}', '');
 
 Route::get('auth/register', 'Auth\RegisterController@showRegistrationForm');
