@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use App\Book;
 
 class BooksController extends Controller
 {
@@ -13,9 +14,15 @@ class BooksController extends Controller
         return view('books',['msg'=>$msg,]);
     }
 
-    public function register(Request $request)
+    public function post(Request $request)
     {
-        $validator = Validator::make($request->all(),
+        $rules = [
+            'item_name' => 'required',
+        ];
+        $messages = [
+            'item_name.required' => '本の名前は必ず入力してください'
+        ];
+        $validator = Validator::make($request->all(), $rules, $messages,
             [
                 'item_name' => 'required |min:3|max:255'
             ]);
@@ -25,9 +32,19 @@ class BooksController extends Controller
 //                ->withErrors($validator)
 //                ->withInput();
         }else{
-            $msg = '正常に送信できました。';
+            $this->registBook($request);
+            $msg = '正常に登録できました。';
         }
 
         return view('books',['msg'=>$msg,]);
+    }
+
+    private function registBook(Request $request){
+        $books = new Book;
+        $books->item_name = $request->item_name;
+        $books->item_number = '1';
+        $books->item_amount = '1000';
+        $books->published = '2019-03-07 00:00:00';
+        $books->save();
     }
 }
