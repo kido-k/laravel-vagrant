@@ -16,6 +16,7 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    @yield('contents')
+    @yield('register')
+    @yield('booklist')
 </body>
 </html>

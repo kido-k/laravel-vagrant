@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
-use App\Book;
+use App\Entity\Book;
 
 class BooksController extends Controller
 {
     public function index()
     {
         $msg = '';
-        return view('books',['msg'=>$msg,]);
+        $books = Book::orderBy('created_at', 'asc')->get();
+        return view('books', [
+            'msg' => $msg,
+            'books' => $books,
+        ]);
     }
 
     public function post(Request $request)
@@ -26,20 +30,21 @@ class BooksController extends Controller
             [
                 'item_name' => 'required |min:3|max:255'
             ]);
-        if($validator->fails()) {
+        if ($validator->fails()) {
             $msg = 'エラーがあります。';
 //            return redirect('/books',['msg'=>$msg,])
 //                ->withErrors($validator)
 //                ->withInput();
-        }else{
+        } else {
             $this->registBook($request);
             $msg = '正常に登録できました。';
         }
 
-        return view('books',['msg'=>$msg,]);
+        return view('books', ['msg' => $msg,]);
     }
 
-    private function registBook(Request $request){
+    private function registBook(Request $request)
+    {
         $books = new Book;
         $books->item_name = $request->item_name;
         $books->item_number = '1';
