@@ -21,7 +21,7 @@ Route::get('/home', function () {
 
 
 Route::get('/books', 'BooksController@index');
-//Route::post('/books', '');
+Route::post('/books', 'BooksController@register');
 //Route::post('/book/{book}', '');
 
 Route::get('auth/register', 'Auth\RegisterController@showRegistrationForm');
