@@ -8,6 +8,8 @@
         @include('common.errors')
         {{--バリデーションエラーの表示に使用--}}
 
+        <p>{{$msg}}</p>
+
         {{--本の登録フォーム--}}
         <form action="{{url('books')}}" method="POST" class="form-horizontal">
             {{csrf_field()}}
