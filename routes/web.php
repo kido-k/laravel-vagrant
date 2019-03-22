@@ -20,6 +20,10 @@ Route::get('/home', function () {
 });
 
 
+Route::get('/books', 'BooksController@index');
+//Route::post('/books', '');
+//Route::post('/book/{book}', '');
+
 Route::get('auth/register', 'Auth\RegisterController@showRegistrationForm');
 Route::post('auth/register', 'Auth\RegisterController@register');
 
