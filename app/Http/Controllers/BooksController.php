@@ -21,17 +21,23 @@ class BooksController extends Controller
     public function post(Request $request)
     {
         $rules = [
-            'item_name' => 'required |min:3|max:255',
-            'item_number' => 'required |min:1|max:6',
-            'item_amount' => 'required |max:6',
-            'published' => 'required',
+            'name' => 'required |min:3|max:255',
+            'author' => 'required |min:1|max:6',
+            'publisher' => 'required |max:6',
+            'image' => 'required',
+            'category' => 'required',
+            'value' => 'required',
+            'release_date' => 'required',
         ];
         $messages = [
-            'item_name.required' => '本の名前を入力してください',
-            'item_name.min' => '３文字以上で入力ください',
-            'item_number.required' => '在庫数を入力してください',
-            'item_amount.required' => '金額を入力してください',
-            'published.required' => '発売日を入力してください',
+            'name.required' => '本の名前を入力してください',
+            'name.min' => '３文字以上で入力ください',
+            'author.required' => '著者を入力してください',
+            'publisher.required' => '出版社を入力してください',
+            'image.required' => '画像のURLを入力してください',
+            'category.required' => 'カテゴリーを入力してください',
+            'value.required' => '定価を入力してください',
+            'release_date.required' => '発売日を入力してください',
         ];
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()) {
@@ -66,10 +72,13 @@ class BooksController extends Controller
     private function registBook(Request $request)
     {
         $books = new Book;
-        $books->item_name = $request->item_name;
-        $books->item_number = $request->item_number;
-        $books->item_amount = $request->item_amount;
-        $books->published = $request->published;
+        $books->name = $request->name;
+        $books->author = $request->author;
+        $books->publisher = $request->publisher;
+        $books->image = $request->image;
+        $books->category = $request->category;
+        $books->value = $request->value;
+        $books->release_date = $request->release_date;
         $books->save();
     }
 }

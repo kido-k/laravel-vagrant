@@ -1,4 +1,4 @@
-@extends('layouts.book.app')
+@extends('layouts.book.book')
 @section('title')
     BooComme!
 @endsection
@@ -39,26 +39,39 @@
         <p>{{$msg}}</p>
         {{--本の登録フォーム--}}
         <div class="panel-body">
-            <form action="{{url('books')}}" method="POST" class="form-horizontal" style="margin:0 1% 0 1%;">
+            <form action="{{url('/books')}}" method="POST" class="form-horizontal" style="margin:0 1% 0 1%;">
                 {{csrf_field()}}
                 <div class="form-group">
-                    <label for="item_name">名称</label>
-                    <input type="text" class="form-control" id="item-name" name="item_name" placeholder="名称を入力してください">
+                    <label for="name">名称</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="名称を入力してください">
                 </div>
                 <div class="form-group">
-                    <label for="item_number">数量</label>
-                    <input type="text" class="form-control" id="item-number" name="item_number"
-                           placeholder="在庫数を入力してください">
+                    <label for="item_number">著者</label>
+                    <input type="text" class="form-control" id="author" name="author"
+                           placeholder="著者名を入力してください">
                 </div>
                 <div class="form-group">
-                    <label for="item_amount">価格</label>
-                    <input type="text" class="form-control" id="item-amount" name="item_amount"
-                           placeholder="価格を入力してください">
+                    <label for="publisher">出版社</label>
+                    <input type="text" class="form-control" id="publisher" name="publisher"
+                           placeholder="出版社を入力してください">
                 </div>
                 <div class="form-group">
-                    <label for="published">発売日</label>
-                    <input type="date" id="published" name="published">
+                    <label for="image">画像URL</label>
+                    <input type="text" class="form-control"  id="image" name="image" placeholder="画像URLを入力してください">
                 </div>
+                <div class="form-group">
+                    <label for="category">カテゴリ</label>
+                    <input type="text" class="form-control"  id="category" name="category" placeholder="カテゴリを入力してください">
+                </div>
+                <div class="form-group">
+                    <label for="value">価格</label>
+                    <input type="text" class="form-control"  id="value" name="value" placeholder="価格を入力してください">
+                </div>
+                <div class="form-group">
+                    <label for="image">発売日</label>
+                    <input type="date" class="form-control"  id="release_date" name="release_date" >
+                </div>
+
                 <button type="submit" class="btn btn-primary">
                     <i class="glyphicon glyphicon-plus"></i>
                     登録
@@ -84,7 +97,9 @@
                     </thead>
                     <!-- テーブル本体 -->
                     <th>名称</th>
-                    <th>在庫数</th>
+                    <th>著者</th>
+                    <th>出版社</th>
+                    <th>画像</th>
                     <th>価格</th>
                     <th>発売日</th>
                     <th></th>
@@ -93,22 +108,32 @@
                         <tr>
                             <td class="table-text">
                                 <div>
-                                    {{$book->item_name}}
+                                    {{$book->name}}
                                 </div>
                             </td>
                             <td class="table-text">
                                 <div>
-                                    {{$book->item_number}}
+                                    {{$book->author}}
                                 </div>
                             </td>
                             <td class="table-text">
                                 <div>
-                                    {{$book->item_amount}}
+                                    {{$book->publisher}}
                                 </div>
                             </td>
                             <td class="table-text">
                                 <div>
-                                    {{$book->published}}
+                                    <img src="{{$book->image}}" alt="{{$book->name}}">
+                                </div>
+                            </td>
+                            <td class="table-text">
+                                <div>
+                                    {{$book->value}}
+                                </div>
+                            </td>
+                            <td class="table-text">
+                                <div>
+                                    {{$book->release_date}}
                                 </div>
                             </td>
                             <td>

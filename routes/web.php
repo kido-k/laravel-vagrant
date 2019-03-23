@@ -12,7 +12,7 @@
 */
 
 
-Route::get('/', 'BooksController@index');
+Route::get('/books', 'BooksController@index');
 Route::post('/books', 'BooksController@post');
 Route::post('/books/del/{book}', 'BooksController@delete');
 //Route::post('/books/del/{id}', 'BooksController@delete');

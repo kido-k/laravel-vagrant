@@ -36,6 +36,9 @@
             margin: 0 5% 0 5%;
             width: 90%;
         }
+        .table-text {
+            vertical-align: center;
+        }
     </style>
 </head>
 <body>
