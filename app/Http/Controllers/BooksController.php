@@ -12,7 +12,7 @@ class BooksController extends Controller
     {
         $msg = '';
         $books = Book::orderBy('created_at', 'asc')->get();
-        return view('/books', [
+        return view('/contents/book/books', [
             'msg' => $msg,
             'books' => $books,
         ]);

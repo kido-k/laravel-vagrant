@@ -11,23 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/home', function () {
-    return view('home');
-});
-
-
-Route::get('/books', 'BooksController@index');
+Route::get('/', 'BooksController@index');
 Route::post('/books', 'BooksController@post');
 Route::post('/books/del/{book}', 'BooksController@delete');
 //Route::post('/books/del/{id}', 'BooksController@delete');
 
 //Route::post('/book/{book}', '');
 
-Route::get('auth/register', 'Auth\RegisterController@showRegistrationForm');
+Route::get('auth/register', 'Auth\RegisterController@showRegistraterForm');
 Route::post('auth/register', 'Auth\RegisterController@register');
 
 Route::get('auth/login', 'Auth\LoginController@showLoginForm');
