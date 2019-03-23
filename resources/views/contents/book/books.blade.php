@@ -1,10 +1,12 @@
 @extends('layouts.book.app')
 @section('title')
-    トップリスト
+    BooComme!
 @endsection
 
-@section('booktitle')
-    <h2 for="book" class="col-sm-3 controle-label">BooComme!</h2>
+@section('bookheader')
+    <a href="/">
+        <h2 for="book" class="col-sm-3 controle-label">BooComme!</h2>
+    </a>
 @endsection
 
 @section('loginstatus')
@@ -45,11 +47,13 @@
                 </div>
                 <div class="form-group">
                     <label for="item_number">数量</label>
-                    <input type="text" class="form-control" id="item-number" name="item_number" placeholder="在庫数を入力してください">
+                    <input type="text" class="form-control" id="item-number" name="item_number"
+                           placeholder="在庫数を入力してください">
                 </div>
                 <div class="form-group">
                     <label for="item_amount">価格</label>
-                    <input type="text" class="form-control" id="item-amount" name="item_amount" placeholder="価格を入力してください">
+                    <input type="text" class="form-control" id="item-amount" name="item_amount"
+                           placeholder="価格を入力してください">
                 </div>
                 <div class="form-group">
                     <label for="published">発売日</label>

@@ -17,39 +17,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
+    <link href="{{ asset('/css/login/login.css') }}" rel="stylesheet" type="text/css">
+
     <title>@yield('title')</title>
-    <style>
-        .bookheader {
-            width:100%;
-            height:70px;
-            display: inline-block;
-        }
-        .loginstatus {
-            float:right;
-            margin:1% 3% 0 0;
-        }
-        .register {
-            margin: 0 5% 0 5%;
-            width: 90%;
-        }
-        .booklist {
-            margin: 0 5% 0 5%;
-            width: 90%;
-        }
-    </style>
 </head>
 <body>
-<div class="bookheader">
+<div class="book-header">
     @yield('bookheader')
-    <div class="loginstatus">
-        @yield('loginstatus')
-    </div>
 </div>
-<div class="register">
-    @yield('register')
-</div>
-<div class="booklist">
-    @yield('booklist')
+<div class="text-center">
+    @yield('loginform')
 </div>
 </body>
 </html>
