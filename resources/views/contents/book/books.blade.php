@@ -4,12 +4,12 @@
 @endsection
 
 @section('booktitle')
-    <h2 for="book" class="col-sm-3 controle-label">BooKComme!</h2>
+    <h2 for="book" class="col-sm-3 controle-label">BooComme!</h2>
 @endsection
 
 @section('loginstatus')
     @if (Auth::check())
-        {{\Auth::user()->name}}さん
+        {{\Auth::user()->name}}さん　　
         <a href="/auth/logout" role="button" class="btn btn-primary">
             <i class="glyphicon glyphicon-plus"></i>
             Log Out
