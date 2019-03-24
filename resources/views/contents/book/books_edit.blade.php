@@ -1,4 +1,4 @@
-@extends('layouts.book.books')
+@extends('layouts.book.book')
 @section('title')
     BooComme!
 @endsection
