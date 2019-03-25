@@ -99,23 +99,27 @@
                     <th>&nbsp;</th>
                     </thead>
                     <!-- テーブル本体 -->
+                    <th>画像</th>
                     <th>名称</th>
                     <th>著者</th>
                     <th>出版社</th>
-                    <th>画像</th>
                     <th>価格</th>
                     <th>発売日</th>
                     <th></th>
                     <tbody>
                     @foreach ($books as $book)
                         <tr>
-                            <td>
+                            <td class="table-text">
                                 <div>
-                                    {{$book->name}}
                                     <img src="{{$book->image}}" alt="{{$book->name}}" style="max-width:200px">
                                 </div>
                             </td>
-                            <td class="table-text ver-cen">
+                            <td class="table-text">
+                                <div>
+                                    {{$book->name}}
+                                </div>
+                            </td>
+                            <td class="table-text">
                                 <div>
                                     {{$book->author}}
                                 </div>
@@ -123,11 +127,6 @@
                             <td class="table-text">
                                 <div>
                                     {{$book->publisher}}
-                                </div>
-                            </td>
-                            <td class="table-text">
-                                <div style="max-width:200px;word-wrap:break-word">
-                                    {{$book->image}}
                                 </div>
                             </td>
                             <td class="table-text">
@@ -141,14 +140,7 @@
                                 </div>
                             </td>
                             <td>
-                                <a href="{{url('books/edit/'.$book->id)}}" class="btn">編集</a>
-                                {{--<form action="{{url('books/edit/'.$book->id)}}" method="GET">--}}
-                                    {{--{{csrf_field()}}--}}
-                                    {{--<button type="submit" class="btn">--}}
-                                        {{--<i class="glyphicon glyphicon-trash"></i>--}}
-                                        {{--編集--}}
-                                    {{--</button>--}}
-                                {{--</form>--}}
+                                <a href="{{url('books/edit/'.$book->id)}}" class="btn btn-info">編集</a>
                                 <form action="{{url('books/del/'.$book->id)}}" method="POST">
                                     {{csrf_field()}}
                                     <button type="submit" class="btn btn-danger">
