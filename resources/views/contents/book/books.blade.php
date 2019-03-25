@@ -4,8 +4,8 @@
 @endsection
 
 @section('bookheader')
-    <a href="/">
-        <h2 for="book" class="col-sm-3 controle-label">BooComme!</h2>
+    <a href="/books">
+        <h1>BooComme!</h1>
     </a>
 @endsection
 
@@ -18,10 +18,10 @@
         </a>
     @else
         ゲストさん　　
-        <a href="/auth/login" role="button" class="btn btn-primary">
+        <a href="/auth/login" role="button" class="btn btn-green">
             Login
         </a>
-        <a href="/auth/register" role="button" class="btn btn-primary">
+        <a href="/auth/register" role="button" class="btn btn-green">
             Sign Up
         </a>
     @endif
@@ -33,12 +33,12 @@
         @include('common.errors')
         {{--バリデーションエラーの表示に使用--}}
         <div class="panel-heading">
-            登録フォーム
+            <p class="form-title-green">本の登録</p>
         </div>
 
         <p>{{$msg}}</p>
         {{--本の登録フォーム--}}
-        <div class="panel-body">
+        <div class="panel-body form-green">
             <form action="{{url('/books')}}" method="POST" class="form-horizontal" style="margin:0 1% 0 1%;">
                 {{csrf_field()}}
                 <div class="form-group">
@@ -57,25 +57,26 @@
                 </div>
                 <div class="form-group">
                     <label for="image">画像URL</label>
-                    <input type="text" class="form-control"  id="image" name="image" placeholder="画像URLを入力してください">
+                    <input type="text" class="form-control" id="image" name="image" placeholder="画像URLを入力してください">
                 </div>
                 <div class="form-group">
                     <label for="category">カテゴリ</label>
-                    <input type="text" class="form-control"  id="category" name="category" placeholder="カテゴリを入力してください">
+                    <input type="text" class="form-control" id="category" name="category" placeholder="カテゴリを入力してください">
                 </div>
                 <div class="form-group">
                     <label for="value">価格</label>
-                    <input type="text" class="form-control"  id="value" name="value" placeholder="価格を入力してください">
+                    <input type="text" class="form-control" id="value" name="value" placeholder="価格を入力してください">
                 </div>
                 <div class="form-group">
                     <label for="image">発売日</label>
-                    <input type="date" class="form-control"  id="release_date" name="release_date" >
+                    <input type="date" class="form-control" id="release_date" name="release_date">
                 </div>
-
-                <button type="submit" class="btn btn-primary">
-                    <i class="glyphicon glyphicon-plus"></i>
-                    登録
-                </button>
+                <div style="text-align:center">
+                    <button type="submit" class="btn btn-orange btn-middle">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        登録
+                    </button>
+                </div>
             </form>
         </div>
     </div>
@@ -85,9 +86,6 @@
     {{--Book: 既に登録されている本のリスト--}}
     @if (count($books) > 0)
         <div class="panel panel-default">
-            <div class="panel-heading">
-                現在の本
-            </div>
             <div class="panel-body">
                 <table class="table table-striped task-table">
                     <!-- テーブルヘッダ -->
@@ -111,7 +109,7 @@
                     <tbody>
                     @foreach ($books as $book)
                         <tr>
-                            <td class="">
+                            <td>
                                 <div>
                                     {{$book->name}}
                                     <img src="{{$book->image}}" alt="{{$book->name}}" style="max-width:200px">
@@ -143,6 +141,14 @@
                                 </div>
                             </td>
                             <td>
+                                <a href="{{url('books/edit/'.$book->id)}}" class="btn">編集</a>
+                                {{--<form action="{{url('books/edit/'.$book->id)}}" method="GET">--}}
+                                    {{--{{csrf_field()}}--}}
+                                    {{--<button type="submit" class="btn">--}}
+                                        {{--<i class="glyphicon glyphicon-trash"></i>--}}
+                                        {{--編集--}}
+                                    {{--</button>--}}
+                                {{--</form>--}}
                                 <form action="{{url('books/del/'.$book->id)}}" method="POST">
                                     {{csrf_field()}}
                                     <button type="submit" class="btn btn-danger">

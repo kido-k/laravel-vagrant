@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/books/books.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/books/books_edit.css') }}" rel="stylesheet" type="text/css">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <title>@yield('title')</title>
@@ -21,11 +21,8 @@
         @yield('loginstatus')
     </div>
 </div>
-<div class="register">
-    @yield('register')
-</div>
-<div class="booklist">
-    @yield('booklist')
+<div class="book-input">
+    @yield('edit')
 </div>
 </body>
 </html>

@@ -8,6 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Styles -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/books/books.css') }}" rel="stylesheet" type="text/css">
 
@@ -15,17 +16,19 @@
 </head>
 <body>
 <sectoin class="container">
-
-    <div class="bookheader">
+    <div id="app">
+        {{--<example-component></example-component>--}}
+    </div>
+    <div class="book-header d-flex justify-content-between">
         @yield('bookheader')
-        <div class="loginstatus">
+        <div class="login-status">
             @yield('loginstatus')
         </div>
     </div>
     <div class="register">
         @yield('register')
     </div>
-    <div class="booklist">
+    <div class="book-list">
         @yield('booklist')
     </div>
 </sectoin>

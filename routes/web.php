@@ -12,9 +12,11 @@
 */
 
 
-Route::get('/books', 'BooksController@index');
-Route::post('/books', 'BooksController@post');
-Route::post('/books/del/{book}', 'BooksController@delete');
+Route::get('books', 'BooksController@index');
+Route::post('books', 'BooksController@post');
+Route::post('books/del/{book}', 'BooksController@delete');
+Route::get('books/edit/{book}', 'BooksController@edit');
+Route::post('books/update/{book}', 'BooksController@update');
 //Route::post('/books/del/{id}', 'BooksController@delete');
 
 //Route::post('/book/{book}', '');
