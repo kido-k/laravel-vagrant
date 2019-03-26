@@ -15,15 +15,17 @@
     <title>@yield('title')</title>
 </head>
 <body>
-<div class="bookheader">
-    @yield('bookheader')
-    <div class="loginstatus">
-        @yield('loginstatus')
+<sectoin class="container">
+    <div class="book-header d-flex justify-content-between">
+        @yield('bookheader')
+        <div class="login-status">
+            @yield('loginstatus')
+        </div>
     </div>
-</div>
-<div class="book-input">
-    @yield('edit')
-</div>
+    <div class="book-input">
+        @yield('edit')
+    </div>
+</sectoin>
 </body>
 </html>
 

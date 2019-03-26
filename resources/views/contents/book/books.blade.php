@@ -131,7 +131,7 @@
                             </td>
                             <td class="table-text">
                                 <div>
-                                    {{$book->value}}
+                                    {{number_format($book->value)}}
                                 </div>
                             </td>
                             <td class="table-text">
